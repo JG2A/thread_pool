@@ -81,14 +81,13 @@ void pool_init(void) {
     for (int i = 0; i < MAX_THREADS; i++) {
         if (pthread_create(&threads[i], NULL, worker, NULL) != 0) {
             fprintf(stderr, "Error creating thread %d\n", i);
-            exit(EXIT_FAILURE);
+            exit(1);
         }
     }
 }
 
 void pool_shutdown(void) {
     for (int i = 0; i < MAX_THREADS; i++) {
-        // Submit NULL tasks to signal threads to exit
         pool_submit(NULL, NULL);
     }
 
@@ -107,7 +106,6 @@ void *worker() {
         task_t task;
         if (dequeue(&task) == 0) {
             if (task.function == NULL) {
-                // NULL task signals the thread to exit
                 break;
             }
             execute(task.function, task.arg);
