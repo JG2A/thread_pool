@@ -1,6 +1,9 @@
 #include "threadpool.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+// #include <libc.h>
 
 struct data {
   int a;
@@ -14,9 +17,9 @@ void add(void *param){
 
 int main (int argc, char *argv[]) {
   
-  printf("argv[0]: %s\n", argv[0]);
-  printf("argv[1]: %s\n", argv[1]);
-  if (argc > 1 && strcmp(argv[2], "default") == 0) {
+  // printf("argv[0]: %s\n", argv[0]);
+  // printf("argv[1]: %s\n", argv[1]);
+  if (argc > 1 && strcmp(argv[1], "default") == 0) {
 
     struct data work;
     struct data work2;
@@ -52,13 +55,13 @@ int main (int argc, char *argv[]) {
       printf("Please provide at least one argument.\n");
       return -1;
     }
-    if (argc % 2 != 0) {
+    if ((argc-1) % 2 != 0) {
       printf("Please provide an even number of arguments.\n");
       return -1;
     }
     struct data client_work;
-    for (int i = 0; i < argc; i++){
-      if (i%2 == 0){
+    for (int i = 1; i < argc; i++){
+      if (i % 2 != 0) {
         client_work.a = atoi(argv[i]);
       }
       else {
