@@ -3,7 +3,7 @@ When thread pools are used, a task is submitted to the pool and executed by a th
 
 ## Identifying Information
 
-* Name: Jose Garcia & Evan Figueroa
+* Name: Jose Garcia 
 * Email: jgarcia2@chapman.edu 
 * Course: CPSC 380
 * Assignment: 4
