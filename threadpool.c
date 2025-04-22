@@ -4,6 +4,8 @@
 #include <semaphore.h>
 #include <pthread.h>
 
+
+
 #define QUEUE_SIZE 10
 #define MAX_THREADS 3
 

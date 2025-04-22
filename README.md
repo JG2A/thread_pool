@@ -24,9 +24,10 @@ When thread pools are used, a task is submitted to the pool and executed by a th
 
 ## Build Insructions
 
-* <code>g++ *.c -o client</code>
+* <code>g++ *.c -o Client</code>
 
 ## Execution Instructions
 
-* In order to run type  <code>./client</code>
+* In order to run type  <code>./Client default</code> for the default set of conditions
+* Otherwise type <code>./Client # # </code> ensuring there is an even amount of numbers 
 
